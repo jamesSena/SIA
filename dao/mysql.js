@@ -1,4 +1,4 @@
-module.exports = function(app){
+module.exports = async  function(app){
     var mysql = require('mysql');
     var connection = mysql.createConnection(
         {
@@ -9,12 +9,18 @@ module.exports = function(app){
         }
     );
     console.log('inicio');
-    var callbackQuery = function(error,result){
-        console.log(result[0].nome);
-        console.log(error);
+    var resultTop;
 
-    }
-    connection.query("select * from sia_db.usuarios",callbackQuery);
- 
+     
+     connection.query("select * from sia_db.usuarios",
+         function(error,result){
+            console.log("result: " + result.nome);
+            resultTop =  result;
+        });
+     console.log("result2: " );
 
-}
+    return resultTop;
+
+}    
+
+funtion 
