@@ -1,6 +1,5 @@
 var mysql = require('mysql');
 var coonMySQL =function(app){
-    console.log("Conexao MySQL On")
     return mysql.createConnection(
         {
             host:'127.0.0.1',
@@ -12,6 +11,5 @@ var coonMySQL =function(app){
 }
  
 module.exports = function(){ 
-    console.log("Carregou contexto do mysql")
     return coonMySQL;
 };

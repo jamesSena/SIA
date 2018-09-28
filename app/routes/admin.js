@@ -6,9 +6,9 @@ module.exports = function(application){
     application.post('/usuarios/salvar', function(req,res){
         var usuario = req.body;
         var connection = application.dao.mysql();
-        var usuariosModel = application.app.models.usuariosModel;
-        usuariosModel.salvarUsuario(usuario,connection, function(error, result){
-            res.render('usuarios/usuarios', {usuarios: result} );
+        var usuariosDAO = new application.app.models.UsuariosDAO(connection);
+        usuariosDAO.salvarUsuario(usuario, function(error, result){
+            res.redirect('/usuarios');
      });
 
     });
