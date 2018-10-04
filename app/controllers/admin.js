@@ -1,5 +1,5 @@
 module.exports.formulario_inclusao_usuario = function(application, req, res){
-    res.render('admin/form_add_usuario',{validacao:null});
+    res.render('admin/form_add_usuario',{validacao:{}});
 }
 module.exports.usuarios_salvar =  function(application, req, res){
     var usuario = req.body;

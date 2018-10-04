@@ -9,7 +9,7 @@ app.use(expressValidator());
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views')
-
+app.use(express.static('./app/public'));
 //Carregar as routas
 consign()
     .include('app/routes') //Adiciona as rotas
